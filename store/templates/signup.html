@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4-4">
+            <h3>
+                <div class="alert alert-danger" role="alert">Create an Account</div>
+            </h3>
+            
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+                
+                <!-- alert message for error -->
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{error}}
+                    </div>
+                {% endif %}
+
+                <!-- first Name -->
+                <div class="form-group m-1">
+                    <label for="">First Name</label>
+                    <input class="form-control-sm form-control" id="   " value="{{values.first_name}}" name="firstname" placeholder="" type="text">
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group m-1">
+                    <label for="">Last Name</label>
+                    <input class="form-control-sm form-control" id="  " value="{{values.last_name}}" name="lastname" placeholder="" type="text">
+                </div>
+
+                <!-- phone number -->
+                <div class="form-group m-1">
+                    <label for="">Phone Number</label>
+                    <input class="form-control-sm form-control" id=" " value="{{values.phone}}" name="phone" placeholder="" type="text">
+                </div>
+
+
+                <!-- email -->
+                <div class="form-group m-1">
+                    <label for="">Email</label>
+                    <input required class="form-control-sm form-control" id="" value="{{values.email}}" name="email" placeholder="example@gmail.com" type="email">
+                </div>
+
+                <!-- password -->
+                <div class="form-group m-1">
+                    <label for="">Password</label>
+                    <input class="form-control-sm form-control" id="    " name="password" placeholder="*******" type="password">
+                </div>
+
+                <div class="col-5">
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

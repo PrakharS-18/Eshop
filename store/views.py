@@ -111,6 +111,8 @@ class Signup(View):
             error_message = 'Password length must be greater than 4'
         elif customer.isExists():
             error_message = 'already signed-up with this email'
+            
+        return error_message
 
 
 class Cart(View):
